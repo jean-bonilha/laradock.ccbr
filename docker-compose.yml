@@ -7,6 +7,8 @@ networks:
     driver: ${NETWORKS_DRIVER}
 
 volumes:
+  oracle:
+    driver: ${VOLUMES_DRIVER}
   mysql:
     driver: ${VOLUMES_DRIVER}
   percona:
@@ -395,6 +397,18 @@ services:
         - MINIO_SECRET_KEY=secretkey
       networks:
         - frontend
+        - backend
+
+### Oracle ################################################
+    oracle:
+      build:
+        context: ./oracle
+      volumes:
+        - ${DATA_PATH_HOST}/oracle:/var/lib/oracle
+        - ${ORACLE_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+      ports:
+        - "${ORACLE_PORT}:1521"
+      networks:
         - backend
 
 ### MySQL ################################################
