@@ -13,6 +13,9 @@
 /nginx/ssl/*.key
 /nginx/ssl/*.csr
 
+/oracle/software/LINUX.X64_193000_db_home.zip
+/oracle/software/apex_20.1_en.zip
+
 /.devcontainer/*
 !/.devcontainer/devcontainer.example.json
 !/.devcontainer/docker-compose.extend-example.yml
