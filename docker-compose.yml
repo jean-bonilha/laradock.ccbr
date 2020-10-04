@@ -404,7 +404,7 @@ services:
       build:
         context: ./oracle
       volumes:
-        - ${DATA_PATH_HOST}/oracle:/opt/oracle/oradata
+        - ${DATA_PATH_HOST}/oracle:/u02/oradata
         - ${ORACLE_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
       ports:
         - "${ORACLE_PORT_TCP}:1521"
