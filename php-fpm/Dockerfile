@@ -34,6 +34,7 @@ RUN if [ ${CHANGE_SOURCE} = true ]; then \
 
 # always run apt update when start and after add new source list, then clean up at end.
 RUN set -xe; \
+    pear config-set http_proxy http://10.58.0.50:8080 && \
     apt-get update -yqq && \
     pecl channel-update pecl.php.net && \
     apt-get install -yqq \
